@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d4841a23a0079e419b654425c326f59, type: 3}
+  m_Name: CoinEarnSpeedUP3
+  m_EditorClassIdentifier: 
+  elementName: CoinEarnSpeed_Level3
+  elementImage: {fileID: 21300000, guid: ca18e878f038b4348b5429029211991c, type: 3}
+  elementCost: 300
+  elementSkill: 1.3
+  elementDesc: "\uCF54\uC778\uBC84\uB294 \uC18D\uB3C4 10\uD37C\uC13C\uD2B8 \uD5A5\uC0C1"
