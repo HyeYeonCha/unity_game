@@ -5,19 +5,19 @@ using UnityEngine.UI;
 
 public class SkillBar : MonoBehaviour
 {
-    public float _speed;
+    public float speed;
 
     [SerializeField]
     private Image barImage; // filledAmount
     
     public Text barTextUI; // bar description UI
 
-    private string _barText; // bar description text
+    public string barText; // bar description text
 
     [SerializeField]
     private Image skillImage; // bar side skill image
 
-    Skill _skill;
+    Info info;
 
     public static SkillBar instance = null;
 
@@ -30,15 +30,17 @@ public class SkillBar : MonoBehaviour
             Destroy(gameObject);
     }
 
-    // null 값 오류 수정해야함.
 
     // Start is called before the first frame update
     void Start()
     {
-        _skill = FindObjectOfType<Skill>();
+        info = FindObjectOfType<Info>();
 
-        //skillImage.sprite = _skill.skillImageSprite;
-        //_speed = _skill.skillAmount;
+        skillImage.sprite = info.skill.skillImageSprite;
+        speed = info.skill.skillAmount;
+
+        barText = info.skill.skillDesc;
+        barTextUI.text = barText;
     }
 
     // Update is called once per frame
@@ -49,7 +51,7 @@ public class SkillBar : MonoBehaviour
 
     private void BarComplate()
     {
-        barImage.fillAmount -= Time.deltaTime * _speed;
+        barImage.fillAmount -= Time.deltaTime * speed;
         
 
         if(barImage.fillAmount <= 0)

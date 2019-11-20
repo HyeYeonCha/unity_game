@@ -15,4 +15,4 @@ MonoBehaviour:
   skillName: speedUP
   skillAmount: 1
   skillImageSprite: {fileID: 21300000, guid: ca18e878f038b4348b5429029211991c, type: 3}
-  skillDesc: 1 product per 1.1second
+  skillDesc: 1 product per 1 second

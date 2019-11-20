@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d4841a23a0079e419b654425c326f59, type: 3}
   m_Name: CoinEarnSpeedUP1
   m_EditorClassIdentifier: 
-  elementName: CoinEarnSpeed_Level1
+  elementName: CoinEarnSpeed_Level
   elementImage: {fileID: 21300000, guid: ca18e878f038b4348b5429029211991c, type: 3}
   elementCost: 100
-  elementSkill: 2
+  elementSkill: 0.1
   elementDesc: Coin Earn Speed UP \n (10% more earn coin)

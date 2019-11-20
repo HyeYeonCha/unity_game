@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField]
     private GameObject toolTip; // 툴팁창 이미지
@@ -12,30 +12,20 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     private Text toolTipTextUI; // 툴팁 설명 UI
     private string toolTipText; // 툴팁에 들어갈 글
     
-
     private Element _element;
 
-    float nextCoin;
-
-    Vector2 MousePosition;
-    Camera camera;
-
+    
     // Start is called before the first frame update
     void Start()
     {
         toolTip.SetActive(false);
         _element = FindObjectOfType<Element>();
-        camera = GameObject.Find("Main Camera").GetComponent<Camera>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        nextCoin = GM.instance.coinCount - _element.upgrade.elementCost;
-        if(nextCoin>=0)
-        {
-            GetComponent<Image>().color = new Color32(130, 255, 255, 255);
-        }
+        
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -65,19 +55,5 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
 
         return _elementDesc;
     }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if(GM.instance.coinCount - _element.upgrade.elementCost <= 0)
-        {
-            return;
-        }
-        else
-        {
-            GM.instance.coinCount = nextCoin;
-            SkillBar.instance._speed = _element.upgrade.elementSkill;
-            SkillBar.instance.barTextUI.text = "" + SkillBar.instance.GetComponent<Skill>().skillDesc;
-            GetComponent<Image>().color = new Color32(255, 255, 255, 255);
-        }
-    }
+   
 }
