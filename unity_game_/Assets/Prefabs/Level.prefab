@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30, y: 0}
-  m_SizeDelta: {x: 340, y: 50}
+  m_AnchoredPosition: {x: 31.5, y: 0}
+  m_SizeDelta: {x: 365, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1623238123923819439
 CanvasRenderer:
@@ -178,7 +178,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 25, y: 3}
+  m_AnchoredPosition: {x: 34, y: 3}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1623238124225193033
@@ -307,7 +307,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1623238124554487702}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c951146a25e82854a9bc44fe08ccd687, type: 3}
+  m_Script: {fileID: 11500000, guid: e73b105e497171243a2a9433d3647ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   skill: {fileID: 0}
@@ -323,6 +323,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95caf57b31e526040aae83f2dda1e169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
   barImage: {fileID: 1623238123923819432}
   barTextUI: {fileID: 1623238124225193034}
+  barText: 
   skillImage: {fileID: 1623238124169421902}
