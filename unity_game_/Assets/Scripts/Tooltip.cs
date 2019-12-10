@@ -11,15 +11,12 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField]
     private Text toolTipTextUI; // 툴팁 설명 UI
     private string toolTipText; // 툴팁에 들어갈 글
-    
-    private Element _element;
 
     
     // Start is called before the first frame update
     void Start()
     {
         toolTip.SetActive(false);
-        _element = FindObjectOfType<Element>();
     }
 
     // Update is called once per frame
@@ -32,7 +29,7 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         toolTip.SetActive(true);
         toolTip.transform.position = new Vector2(gameObject.transform.position.x - 150f, gameObject.transform.position.y - 150f);
-        toolTipText = "" + _element.upgrade.elementDesc;
+        toolTipText = "" + GetComponent<Element>().upgrade.elementDesc;
 
         NewLineReplace(toolTipText);
     }

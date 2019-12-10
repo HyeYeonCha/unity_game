@@ -8,15 +8,13 @@ public class UpgradeItem : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField]
     private Text itemTextUI;
-    private string itemText;
+    public string itemText;
 
     [SerializeField]
     private Image itemImage;
 
     float nextCoin;
-
-    private Element element;
-
+    
     int level;
 
     AudioSource audio;
@@ -24,27 +22,29 @@ public class UpgradeItem : MonoBehaviour, IPointerClickHandler
     // Start is called before the first frame update
     void Start()
     {
-        element = FindObjectOfType<Element>();
-        itemText = element.upgrade.elementName;
+        itemText = GetComponent<Element>().upgrade.elementName;
         level = 1;
         itemTextUI.text = itemText + level;
-        itemImage.sprite = element.upgrade.elementImage;
+        itemImage.sprite = GetComponent<Element>().upgrade.elementImage;
         audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        nextCoin = GM.instance.coinCount - element.upgrade.elementCost;
+        nextCoin = GM.instance.coinCount - GetComponent<Element>().upgrade.elementCost;
         if (nextCoin >= 0)
         {
             GetComponent<Image>().color = new Color32(255, 239, 162, 255);
+        } else
+        {
+            GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         }
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (GM.instance.coinCount - element.upgrade.elementCost <= 0)
+        if (GM.instance.coinCount - GetComponent<Element>().upgrade.elementCost <= 0)
         {
             return;
         }
@@ -56,8 +56,25 @@ public class UpgradeItem : MonoBehaviour, IPointerClickHandler
             GM.instance.coinCount = nextCoin;
             itemTextUI.text = itemText + level;
 
-            SkillBar.instance.speed += element.upgrade.elementSkill;
-            SkillBar.instance.barTextUI.text = "1 product per " + SkillBar.instance.speed + " second";
+            if(gameObject.tag == "Speed")
+            {
+                SkillBar.instance.speed += GetComponent<Element>().upgrade.elementSkill;
+
+                SkillBar.instance.barTextUI.text = "1 product per " + (2 - SkillBar.instance.speed).ToString("N1") + " second";
+            } else if (gameObject.tag == "Quantity")
+            {
+                GM.instance.speed += GetComponent<Element>().upgrade.elementSkill;
+                
+            } else if (gameObject.tag == "Click")
+            {
+                GM.instance.clickCoin += GetComponent<Element>().upgrade.elementSkill;
+            }
+            
+
+            if (2 - SkillBar.instance.speed < 0.01f)
+            {
+                SkillBar.instance.speed = 1.99f;
+            }
 
             GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         }

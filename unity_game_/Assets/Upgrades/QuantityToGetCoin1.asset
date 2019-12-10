@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d4841a23a0079e419b654425c326f59, type: 3}
-  m_Name: CoinEarnSpeedUP2
+  m_Name: QuantityToGetCoin1
   m_EditorClassIdentifier: 
-  elementName: CoinEarnSpeed_Level2
-  elementImage: {fileID: 21300000, guid: ca18e878f038b4348b5429029211991c, type: 3}
+  elementName: Quantity to get Coin_Level
+  elementImage: {fileID: 21300000, guid: 27cdefdcff5ab5e4b863ace3c93bfb0e, type: 3}
   elementCost: 200
-  elementSkill: 1.2
-  elementDesc: "\uCF54\uC778\uBC84\uB294 \uC18D\uB3C4 10\uD37C\uC13C\uD2B8 \uD5A5\uC0C1"
+  elementSkill: 1.1
+  elementDesc: Quantity to get Coin UP \n (10% more earn coin)

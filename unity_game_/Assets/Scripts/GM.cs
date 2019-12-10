@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.Mathf;
 
 public class GM : MonoBehaviour
 {
@@ -15,8 +16,13 @@ public class GM : MonoBehaviour
 
     public float speed;
 
-    public static GM instance = null;              
+    public float clickCoin;
 
+    public GameObject coinUP;
+    public Text coinUPText;
+
+    public static GM instance = null;        
+    
     void Awake()
     {
         if (instance == null)
@@ -33,18 +39,30 @@ public class GM : MonoBehaviour
     {
         coinCount = 0f;
         speed = 1.0f;
+        clickCoin = 1.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        coinCount += Time.deltaTime;
-        coinText.text = coinCount.ToString("N0");
+        coinCount += Time.deltaTime * speed;
+        coinText.text = coinCount.ToString("N1");
+
     }
 
     public void OnClickCoin()
     {
-        coinCount++;
+        coinCount += clickCoin;
+
+        float r = 150f;
+        float degree = Random.Range(0, 180);
+
+        GameObject upcoin = Instantiate(coinUP, new Vector3(coin.gameObject.transform.position.x + r * Cos(degree), coin.gameObject.transform.position.y + r * Sin(degree)), Quaternion.identity);
+        upcoin.transform.SetParent(GameObject.Find("Canvas").transform);
+
+        coinUPText = upcoin.transform.GetChild(0).GetComponent<Text>();
+        coinUPText.text = "+" + clickCoin.ToString("N1");
+        Destroy(upcoin, 5f);
     }
 
 
